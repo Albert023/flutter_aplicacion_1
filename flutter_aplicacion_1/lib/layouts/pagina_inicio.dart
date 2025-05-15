@@ -6,6 +6,7 @@ import '../services/gastos_services.dart';
 class Inicio extends StatefulWidget {
   const Inicio({super.key}); //Esto se va a borrar
 
+  @override
   State<Inicio> createState() => InicioState();
 }
 
