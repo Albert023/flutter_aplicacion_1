@@ -57,10 +57,12 @@ class InicioState extends State<Inicio> {
           child: FutureBuilder<List<Gastos>>(
             future: cargarGastos(),
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting)
+              if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(child: CircularProgressIndicator());
-              if (!snapshot.hasData || snapshot.data!.isEmpty)
+              }
+              if (!snapshot.hasData || snapshot.data!.isEmpty) {
                 return Center(child: Text("No hay gastos registrados"));
+              }
 
               final gastos = snapshot.data!;
               final total = gastos.fold(0.0, (sum, e) => sum + e.monto);

@@ -84,8 +84,9 @@ class Formulario_gastosState extends State<Formulario_gastos> {
                 validator: (value) {
                   if (value == null || value.isEmpty) return "Ingresa un monto";
                   if (double.tryParse(value) == null) return "Monto invalido";
-                  if (double.parse(value) < 0.0)
+                  if (double.parse(value) < 0.0) {
                     return "Ingres un monto mayor que 0.0";
+                  }
                 },
                 onSaved: (value) => monto = double.parse(value!),
               ),
